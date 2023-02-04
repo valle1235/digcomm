@@ -28,6 +28,10 @@ function d = qpsk(b)
 % Output:
 %   d = complex-valued QPSK symbols
 
+%If the first bit of the symbol is 0 -> real part is positive
+%If second bit of the symbol is 0 -> imaginary part is positive
+%This achieves gray coding
+
     b_nrz = 2*b -1; %{0,1} -> {-1,1}, NRZ encoding
     I=b_nrz(1:2:end); %Odd indexes
     Q=b_nrz(2:2:end); %Even indexes
