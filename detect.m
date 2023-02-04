@@ -20,6 +20,9 @@ function bhat = detect(r)
 %
 % Output:
 %   bhat  = bits {0,1} corresponding to the QPSK symbols
+
+%Just the functional inverse of qpsk
+
 even_idx = zeros(1,length(r));
 odd_idx = zeros(1,length(r));
 I = real(r);
