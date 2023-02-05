@@ -18,7 +18,8 @@ function t_samp = sync(mf, b_train, Q, t_start, t_end)
 %
 % Output:
 %   t_samp = sampling instant for first symbol
-    corr = xcorr(b_train,mf);
+    b_train_qpsk = qpsk(b_train);
+    corr = xcorr(b_train_qpsk,mf);
     corr = abs(corr(t_start:t_end));
     [~,alignment] = max(corr); %Find the correct alignment of mf
     t_samp = (alignment+t_start-1)/Q;
