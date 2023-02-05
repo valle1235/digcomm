@@ -13,7 +13,7 @@ function phihat = phase_estimation(r, b_train)
 %
 % Output:
 %   phihat     = estimated phase
-
-corr = xcorr(r,b_train);
+b_train_qpsk = qpsk(b_train);
+corr = xcorr(r,b_train_qpsk);
 [~, alignment] = max(abs(corr)); %Finds max value of the correlation -> finds the shift where r and b_train best align i.e. minimizing the norm
 phihat = angle(corr(alignment));
